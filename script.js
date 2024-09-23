@@ -1,21 +1,71 @@
-// Variables y constantes
-const precioOriginal = 100; // Precio original del producto
-let descuento = 0; // Descuento aplicado
+// Variables globales
+let productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-// Función para calcular el precio final después del descuento
-function calcularPrecioFinal(precio, descuento) {
-    let precioFinal = precio - (precio * descuento / 100);
-    return precioFinal;
+// Función para calcular el precio final con descuento
+function calcularPrecio(precio, descuento) {
+    return precio - (precio * descuento / 100);
 }
 
-// Interactuo con el usuario a través de prompts
-descuento = parseFloat(prompt("Ingrese el porcentaje de descuento:"));
-if (isNaN(descuento) || descuento < 0 || descuento > 100) {
-    alert("Por favor, ingrese un valor de descuento válido entre 0 y 100.");
-} else {
-    let precioFinal = calcularPrecioFinal(precioOriginal, descuento);
-    console.log("El precio original es: $" + precioOriginal);
-    console.log("El descuento aplicado es: " + descuento + "%");
-    console.log("El precio final después del descuento es: $" + precioFinal);
-    alert("El precio final es: $" + precioFinal);
+// Función para agregar un producto
+function agregarProducto() {
+    const nombre = document.getElementById("producto").value;
+    const precio = parseFloat(document.getElementById("precio").value);
+    const descuento = parseFloat(document.getElementById("descuento").value);
+
+    if (!nombre || isNaN(precio) || isNaN(descuento)) {
+        alert("Por favor, complete todos los campos correctamente.");
+        return;
+    }
+
+    const precioFinal = calcularPrecio(precio, descuento);
+    const producto = {
+        nombre: nombre,
+        precio: precio,
+        descuento: descuento,
+        precioFinal: precioFinal
+    };
+
+    productos.push(producto); // Agregar al array
+    mostrarProductos();
+    limpiarCampos();
 }
+
+// Función para mostrar los productos en la lista
+function mostrarProductos() {
+    const listaProductos = document.getElementById("listaProductos");
+    listaProductos.innerHTML = ""; // Limpiar la lista
+
+    productos.forEach((producto, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `Producto: ${producto.nombre}, Precio: $${producto.precio}, Descuento: ${producto.descuento}%, Precio Final: $${producto.precioFinal}`;
+        listaProductos.appendChild(li);
+    });
+}
+
+// Función para guardar en LocalStorage
+function guardarProductos() {
+    localStorage.setItem("productos", JSON.stringify(productos));
+    alert("Productos guardados en LocalStorage.");
+}
+
+// Función para limpiar los productos guardados
+function limpiarProductos() {
+    productos = [];
+    mostrarProductos();
+    localStorage.removeItem("productos");
+}
+
+// Función para limpiar los campos del formulario
+function limpiarCampos() {
+    document.getElementById("producto").value = "";
+    document.getElementById("precio").value = "";
+    document.getElementById("descuento").value = "";
+}
+
+// Eventos
+document.getElementById("agregarProducto").addEventListener("click", agregarProducto);
+document.getElementById("guardarProductos").addEventListener("click", guardarProductos);
+document.getElementById("limpiarProductos").addEventListener("click", limpiarProductos);
+
+// Mostrar los productos al cargar la página
+mostrarProductos();
