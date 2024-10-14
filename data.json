@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "name": "Jogging cemento",
+        "price": 22000.00,
+        "category": "Joggings",
+        "image": "assets/Jogging-cemento.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Jogging negro",
+        "price": 22000.00,
+        "category": "Joggings",
+        "image": "assets/Jogging-negro.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Buzo negro",
+        "price": 24000.00,
+        "category": "Buzos",
+        "image": "assets/buzo-negro.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Buzo miel",
+        "price": 24000.00,
+        "category": "Buzos",
+        "image": "assets/buzo-miel.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Buzo blanco",
+        "price": 24000.00,
+        "category": "Buzos",
+        "image": "assets/buzo-blanco.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Buzo beige",
+        "price": 24000.00,
+        "category": "Buzos",
+        "image": "assets/buzo-beige.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Buzo gris",
+        "price": 24000.00,
+        "category": "Buzos",
+        "image": "assets/buzo-gris.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Buzo marron",
+        "price": 24000.00,
+        "category": "Buzos",
+        "image": "assets/buzo-marron.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Remera blanca",
+        "price": 18000.00,
+        "category": "Remeras",
+        "image": "assets/remera-blanca.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Remera negra",
+        "price": 18000.00,
+        "category": "Remeras",
+        "image": "assets/remera-negra.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Remera crema",
+        "price": 18000.00,
+        "category": "Remeras",
+        "image": "assets/remera-crema.jpg"
+    }
+]

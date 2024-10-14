@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Precios</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Simulador de Precios con Descuento</h1>
-
-    <div class="simulador">
-        <label for="producto">Nombre del Producto:</label>
-        <input type="text" id="producto" placeholder="Ingrese el nombre">
-
-        <label for="precio">Precio:</label>
-        <input type="number" id="precio" placeholder="Ingrese el precio">
-
-        <label for="descuento">Descuento (%):</label>
-        <input type="number" id="descuento" placeholder="Ingrese el descuento">
-
-        <button id="agregarProducto">Agregar Producto</button>
-
-        <div id="resultado"></div>
-
-        <h2>Productos Agregados:</h2>
-        <ul id="listaProductos"></ul>
-
-        <button id="guardarProductos">Guardar en LocalStorage</button>
-        <button id="limpiarProductos">Limpiar Lista</button>
-    </div>
-
-    <script src="js/script.js"></script>
+    <header>
+        <img src="assets/Logo-Kloudd.jpg" alt="Logo kloudd">
+        <h1>MARCA DE ROPA</h1>   
+    </header>
+    <main>
+        <section id="filters">
+            <label for="category-filter"><b>Filtrar por categoría:</b></label>
+            <select id="category-filter">
+                <option value="">Todas</option>
+            </select>
+        </section>
+        <section id="product-list"></section>
+        <section id="cart">
+            <h2>Carrito</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total-price">0</span></p>
+            <p>Método de pago aceptado:</p>
+            <form id="payment-form">
+                <input type="radio" id="cash" name="payment" value="cash" checked>
+                <label for="cash">Efectivo</label>
+                <input type="radio" id="transfer" name="payment" value="transfer">
+                <label for="transfer">Transferencia</label>
+                <button type="button" id="checkout-button">Finalizar Compra</button>
+            </form>
+            <p id="payment-message"></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
